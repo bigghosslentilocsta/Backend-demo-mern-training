@@ -1,6 +1,7 @@
+// Admin API routes for platform administration
 import exp from 'express'
 export const adminRoute=exp.Router()
 
-//authenticate admin
-//read all articles
-//block or unblock author
+// TODO: Implement admin authentication
+// TODO: Implement read all articles functionality
+// TODO: Implement block/unblock author functionality

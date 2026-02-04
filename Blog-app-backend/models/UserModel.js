@@ -1,6 +1,7 @@
-import {schema, model, version} from 'mongoose'
+// User model supporting multiple roles: admin, user, author
+import {Schema, model} from 'mongoose'
 
-const userSchema=new schema({
+const userSchema=new Schema({
 
     firstName:{
         type:String,
@@ -18,12 +19,12 @@ const userSchema=new schema({
     },
     role:{
         type:String,
-        enum:["admin","user","author"],
+        enum:["admin","user","author"],  // Three role types for platform
         required:[true,"{Value} is an invalid role"]
     },
     isActive:{
         type:Boolean,
-        default:true
+        default:true  // Used for blocking/unblocking users and authors
     },
     password:{
         type:String,

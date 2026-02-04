@@ -1,7 +1,8 @@
+// User API routes for reading and commenting
 import exp from 'express'
 export const userRoute=exp.Router()
 
-//regiter user
-//authenticate user
-//read articles
-//comment on article
+// TODO: Implement user registration
+// TODO: Implement user authentication
+// TODO: Implement read all active articles
+// TODO: Implement comment on article functionality

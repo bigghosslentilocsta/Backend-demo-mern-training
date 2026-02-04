@@ -1,6 +1,6 @@
 import { Schema,model } from "mongoose";
 
-//create user comment section
+// Comment schema for user comments on articles
 const userCommentSchema=new Schema({
     user:{
         type:Schema.Types.ObjectId,
@@ -10,7 +10,7 @@ const userCommentSchema=new Schema({
 
 })
 
-//create article schema
+// Article schema with author reference and embedded comments
 const articleSchema=new Schema({
     author:{
         type:Schema.Types.ObjectId,
@@ -33,7 +33,7 @@ const articleSchema=new Schema({
     comments:[userCommentSchema],
     isArticleActive:{
         type:Boolean,
-        default:true
+        default:true  // Used for soft delete functionality
     }
  },
  {

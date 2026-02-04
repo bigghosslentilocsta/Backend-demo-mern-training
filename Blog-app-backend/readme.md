@@ -1,22 +1,99 @@
-### Backend development
+# Blog Application Backend
 
-1.Create git repo
-    git init
+A multi-role blogging platform backend built with Node.js, Express, and MongoDB, supporting three user roles: Users, Authors, and Admins.
 
-2.Add .gitignore file
+## Features
 
-3. create .env file for environment variables & read data from .env with "dotenv" module
-    npm i dotenv
+### User Roles
 
-4.Generate package.json
-    npm init -y
-    
-5. Create express app
+**Users**
+- Register and authenticate
+- Browse and read articles
+- Comment on articles
 
-6.Connect to DB
+**Authors**
+- Register and authenticate as content creators
+- Create, edit, and publish articles
+- View their own articles
+- Soft delete articles (marking as inactive)
 
-7.Add middlewares (body parse,err handling middleware )
+**Admins**
+- Authenticate with admin privileges
+- View all articles across the platform
+- Block or unblock authors
+- Moderate content
 
-8.Design schemas and create models
+## Tech Stack
 
-9. design rest api's for all resources
+- **Runtime**: Node.js
+- **Framework**: Express.js
+- **Database**: MongoDB with Mongoose ODM
+- **Environment Management**: dotenv
+
+## API Routes
+
+### User Routes (`/users`)
+- User registration
+- User authentication
+- Read articles
+- Comment on articles
+
+### Author Routes (`/authors`)
+- Author registration
+- Author authentication
+- Create new articles
+- Read author's articles
+- Edit articles
+- Delete articles (soft delete)
+
+### Admin Routes (`/admins`)
+- Admin authentication
+- Read all articles
+- Block/unblock authors
+
+## Database Schema
+
+### User Schema
+- firstName (String, required)
+- lastName (String, optional)
+- email (String, required)
+- profileImage (String, optional)
+- role (Enum: admin, user, author)
+- isActive (Boolean, default: true)
+- password (String, required)
+- Timestamps: createdAt, updatedAt
+
+### Article Schema
+- author (ObjectId ref User, required)
+- title (String, required)
+- category (String, required)
+- content (String, required)
+- comments (Array of user comments)
+- isArticleActive (Boolean, default: true)
+- Timestamps: createdAt, updatedAt
+
+### Comment Schema
+- user (ObjectId ref User)
+- comment (String)
+
+## Setup
+
+1. Install dependencies: `npm install`
+2. Create `.env` file with:
+   ```
+   DB_URL=your_mongodb_connection_string
+   PORT=your_port_number
+   ```
+3. Start server: `node server.js`
+
+## Development Process
+
+1. Initialize git repository: `git init`
+2. Add .gitignore file
+3. Create .env file for environment variables
+4. Generate package.json: `npm init -y`
+5. Create Express app
+6. Connect to MongoDB
+7. Add middlewares (body parser, error handling)
+8. Design schemas and create models
+9. Design REST APIs for all resources
