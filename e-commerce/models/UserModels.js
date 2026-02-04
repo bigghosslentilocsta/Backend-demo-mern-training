@@ -1,5 +1,6 @@
 import{Schema,model} from 'mongoose';
-//create cart schema
+
+// Cart item schema (embedded in user document)
 const cartSchema = new Schema({
     product:{
         type:Schema.Types.ObjectId,
@@ -12,8 +13,10 @@ const cartSchema = new Schema({
         min:1
     }
 },
-{ _id: false
+{ _id: false  // Cart items don't need their own _id
 });
+
+// User schema definition
 const userSchema=new Schema({
     userName:{
         type:String,
@@ -30,12 +33,14 @@ const userSchema=new Schema({
     },
     cart:{
         type:[cartSchema],
-        default:[]
+        default:[]  // Initialize with empty cart
     }
 },
 {
-    timestamps: true,
+    timestamps: true,  // Adds createdAt and updatedAt
     versionKey: false
 }
 );
+
+// Export User model
 export const UserModel=model("user",userSchema);

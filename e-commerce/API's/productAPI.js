@@ -1,9 +1,10 @@
+// Product API routes
 import exp from "express";
 import { ProductModel } from "../models/ProductModels.js";
 
 const productApp = exp.Router();
 
-//get product
+// Get all products from database
 productApp.get("/products", async (req, res) => {
 try {
     const products = await ProductModel.find();
@@ -19,8 +20,7 @@ try {
 }
 });
 
-
-// create product
+// Create a new product
 productApp.post("/products", async (req, res) => {
 try {
     const productObj = req.body;

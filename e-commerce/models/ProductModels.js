@@ -1,5 +1,6 @@
 import {Schema, model} from "mongoose";
-//product scehma
+
+// Product schema definition
 const productSchema = new Schema({
     productName: {
         type:String,
@@ -16,8 +17,9 @@ const productSchema = new Schema({
 },
 {
     strict:"throw",
-    timestamps:true,
+    timestamps:true,  // Adds createdAt and updatedAt fields
     versionKey:false
 });
-//create model
+
+// Export Product model
 export const ProductModel = model("product",productSchema);
