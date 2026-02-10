@@ -97,3 +97,8 @@ A multi-role blogging platform backend built with Node.js, Express, and MongoDB,
 7. Add middlewares (body parser, error handling)
 8. Design schemas and create models
 9. Design REST APIs for all resources
+
+## working architecture of blog app
+
+![alt text](<WhatsApp Image 2026-02-10 at 9.28.43 AM.jpeg>)
+

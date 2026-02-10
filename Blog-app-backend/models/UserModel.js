@@ -13,6 +13,7 @@ const userSchema=new Schema({
     email:{
         type:String,
         required:[true,"email is required"],
+        unique:true
     },
     profileImage:{
         type:String
@@ -36,3 +37,5 @@ const userSchema=new Schema({
         strict:"throw",
         versionKey:false
     })
+
+export const UserTypeModel = model("User", userSchema)

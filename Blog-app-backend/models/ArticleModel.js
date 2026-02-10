@@ -43,5 +43,7 @@ const articleSchema=new Schema({
  }
 )
 
+export const ArticleTypeModel = model("Article", articleSchema)
+
 
 

@@ -1,34 +1,4 @@
 node_modules/
-npm-debug.log
-yarn-error.log
-pnpm-debug.log
-
-# Build output
-dist/
-build/
-coverage/
-
 # Environment variables
 .env
-.env.local
-.env.*.local
 
-# Package manager
-.npmrc
-.pnpm-store/
-.yarn/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-.DS_Store
-
-# Logs
-logs/
-*.log
-
-# OS
-Thumbs.db
