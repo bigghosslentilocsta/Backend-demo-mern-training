@@ -5,16 +5,23 @@ import { config } from 'dotenv'
 import { userRoute} from './APIs/UserAPI.js'
 import { authorRoute } from './APIs/AuthorAPI.js'
 import { adminRoute } from './APIs/AdminAPI.js'
+import { commonRouter } from './APIs/CommonAPI.js'
+import cookieParser from 'cookie-parser'
 
 // Load environment variables from .env file
 config()
 
 const app=exp()
 
+app.use(exp.json())
+
+app.use(cookieParser())
+
 // Register route handlers for different user roles
 app.use('/users', userRoute)
 app.use('/authors', authorRoute)
 app.use('/admins', adminRoute)
+app.use('/common', commonRouter)
 
 // Connect to MongoDB and start server
 async function connectDB() {
@@ -32,6 +39,14 @@ async function connectDB() {
 }
 
 connectDB()
+
+//dealing with invalid path
+app.use((req,res,next)=> {
+    res.json({message: `${req.url}is invalid path`});
+});
+
+
+
 
 // Global error handling middleware
 app.use((err,req,res,next)=>{
